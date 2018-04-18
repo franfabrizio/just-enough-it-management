@@ -18,10 +18,10 @@ email: fran@franfabrizio.com
 description: >- # this means to ignore newlines until "baseurl:"
   Just Enough IT Management is a blog for all the IT professionals out there
   who wake up one day and find themselves in management. This blog discusses
-  how to be a pragmatic and effective manager while staying true to your 
+  how to be a pragmatic and effective manager while staying true to your
   techie roots.
-baseurl: "" # the subpath of your site, e.g. /blog
-url: "" # the base hostname & protocol for your site, e.g. http://example.com
+baseurl: "/just-enough-it-management" # the subpath of your site, e.g. /blog
+url: "http://blog.franfabrizio.com" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: franfabrizio
 github_username:  franfabrizio
 
