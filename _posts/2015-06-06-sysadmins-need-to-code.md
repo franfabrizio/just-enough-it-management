@@ -1,0 +1,35 @@
+---
+layout: post
+title: Sysadmins Are Software Developers Too
+date: 2015-06-06 23:00:00
+---
+
+At work, we sort of have a reputation locally for a [fairly grueling interview process][L1].  And we're fine with this, really.  We're a small shop that doesn't have the luxury of suffering through a bad hire, so we are pretty careful about it.  We're not Google-esque, but we do have a three-stage interview process (which I describe in the article behind that link above from our work blog).
+
+One of those stages is an at-home coding exercise, which we design to take about 4-6 hours and for which we allow a 3-calendar-day window of the candidate's choosing to complete it.  Almost all of our hires are for software developers, so the exercise would typically be something like writing a straightforward mini MVC-style web application (for a web developer) or setting up a bit of a data munging pipeline (for our data production developers).  In the past year we've also hired two sysadmins, and when preparing for those searches, we debated about whether to include the at-home exercise for a sysadmin candidate, and if so, what that exercise should look like.
+
+I advocated strongly that we should include a hefty dose of software development as part of the process, and internally, this idea was pretty well-received.  I felt this way for two separate reasons, one local and one more universal. 
+
+The local reason is that we're a team of software developers.  Software development is our primary mission, and it's helpful if our sysadmins understand the kinds of issues that software developers tend to face.  Things like keeping libraries/modules/dependencies in sync between development and production systems, or needing clean deployment pathways with properly configured service accounts and SSH keys.  These types of issues may never be significant issues if you're a sysadmin in a typical office environment or supporting commercial enterprise software systems, but if you're supporting a group of folks writing custom software using open source technologies, having a clear understanding of the types of environments they need is critical.  And if you've written a significant amount of software yourself, you naturally have this empathetic sort of worldview.
+
+The second and more universal reason is that the world of sysadmin is becoming too complicated to manage without writing sophisticated code.  I'm not talking about simple automation scripts, log mungers or glue code, which have been part of effective sysadmin for decades.  I'm talking about full-fledged software systems.  It used to be that as a sysadmin you had a modest collection of physical servers which were fairly static and to which you could log in and do manual troubleshooting, maybe write a few automation scripts, and call it a day.  The expectation for spinning up a new service was measured in days or weeks - a comfortable, human scale timeframe that allowed you to be a bit "artisinal" in your approach.
+
+No more.  Now, infrastructure is fluid and it's abstract.  This change began with the wave of x86 virtualization at the dawn of the 21st century, but even then, you still had direct control over your VMs and their hosts and their physical hardware.  Then AWS and the other cloud services came along, and that pushed this sea change along much farther.  And then an entire SaaS ecosystem was born which leveraged those cloud services and built tools upon which we're now all dependent, which really sealed the deal.  
+
+Many of the services today's sysadmin will support will depend on components over which neither you nor anyone else in your organization have direct or complete control.  Buying a physical server used to be the norm not all that long ago.  Then we shifted to VM-first until proven otherwise, which we thought was a big deal, and I suppose it was for its time.  But in hindsight, it was the cloud, not virtualization, that really flipped the switch.  Many organizations have since shifted to cloud-first, or cloud-only, and it's only a matter of time before that's the norm just about everywhere.  You'll be given an API to manage your resources, and that's it.  Servers and services will blink in and out of existence as needed. Data will likely flow in and out of your network and over your organizational boundaries continuously as it goes through its lifecycle.  And your constituents will expect new services to be available in minutes and hours rather than days or weeks.
+
+In short, the complexity inherent in modern sysadmin is moving beyond human scale.  We're going to need to continue to build ever more sophisticated systems to manage our other systems.  I see these changes in play where I work and I bet you do too. Right now, we're trying to figure out how to build out a seamless workflow that consumes resources from our central IT group, the campus supercomputing center, and cloud environments.  It's possible to do it manually, but without automating and abstracting this complexity away from our users, uptake will be minimal.  We're also trying to get a handle on our monitoring and metrics, which again has to pull data from multiple pools of infrastructure spread across multiple organizations, none of which we fully control, and then present it in a way that's effective for analysis and ad-hoc querying.  And its our sysadmins that need to help with the architecture and buildout of these systems.  
+
+Which brings me back to the initial point of this post.  Sysadmins need to know how to code.  For real.  With a strong foundation of software development principles, not just self-taught sysadmin scripting (which is still important, but no longer sufficient).  We've since completed the two sysadmin searches, and we did ask our candidates to do an at-home coding exercise, part of which asked them to munge and load some demographic data into a database.  It was a pretty mild exercise, all things considered, but the point was that it was a piece of code that's a little off the beaten path of typical sysadmin code of log parsing or account management. 
+
+We made two successful hires, but during the process I was disheartened by the number of candidates that either hadn't recognized this change in their profession or hadn't done anything about it.  They really struggled with the exercise, and in many cases failed to recognize why the skill was even important.  If you're a sysadmin, here are some things that you might want to add to your toolbox if you haven't already:
+
+1. Automated provisioning tools (e.g. Chef or Puppet).
+1. High level of comfort coding against lots of different APIs.   
+1. Writing APIs as part of your own systems for other systems to consume.
+1. Some understanding of parallelized / multithreaded code.
+1. A working knowledge of how common languages (e.g. Ruby, Python) manage their environment and dependencies.
+
+These skills will give you a competitive advantage in the marketplace, especially if you want to support software developers.
+
+[L1]: http://tech.popdata.org/our-it-hiring-process-how-and-why/
